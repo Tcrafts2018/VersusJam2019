@@ -9,8 +9,9 @@ public class Player2Unit : MonoBehaviour
     private bool frambDetected = false;
     private bool isAttacking;
     private bool canAttack = true;
-    static public float P2Uhealth = 40;
-    static public float P2Udamage;
+    public float P2Uhealth = 40;
+    public float P2Udamage;
+    public float P1Uh;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,10 +27,10 @@ public class Player2Unit : MonoBehaviour
         }
 
         if (isAttacking == true && canAttack == true)
-        {
+        {    
             canAttack = false;
             P2Udamage = Random.Range(15, 26);
-            Player1Unit.P1Uhealth = Player1Unit.P1Uhealth - P2Udamage;
+            P1Uh = P1Uh - P2Udamage;
             Debug.Log("P2UAttacked");
             StartCoroutine("AttackReset");
         }
@@ -42,6 +43,7 @@ public class Player2Unit : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        P1Uh = other.GetComponent<Player1Unit>().P1Uhealth;
         if (other.gameObject.tag == "Player1Unit")
         {
             enemyDetected = true;
