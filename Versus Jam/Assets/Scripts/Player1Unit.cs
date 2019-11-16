@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Player1Unit : MonoBehaviour
 {
-    public float unitmoveSpeed; 
+    public float unitMoveSpeed;
+    public bool enemyDetected = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +15,27 @@ public class Player1Unit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Time.deltaTime * Vector3.right * unitmoveSpeed);
+        if (enemyDetected == false)
+        {
+            transform.Translate(Time.deltaTime * Vector3.right * unitMoveSpeed);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Player2Unit")
+        {
+            enemyDetected = true;
+            Debug.Log("Enemy Detected");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player2Unit")
+        {
+            enemyDetected = false;
+            Debug.Log("Enemy Lost");
+        }
     }
 }
