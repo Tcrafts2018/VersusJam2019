@@ -5,6 +5,10 @@ using UnityEngine;
 public class Player1Controller : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    public GameObject SpawnLoc;
+    public GameObject Unit;
+
     void Start()
     {
         
@@ -16,21 +20,25 @@ public class Player1Controller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             Debug.Log("Miner1 Spawned");
+            Instantiate(Unit, SpawnLoc.transform.position, SpawnLoc.transform.rotation);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             Debug.Log("Attacker1 Spawned");
+            Instantiate(Unit, SpawnLoc.transform.position, SpawnLoc.transform.rotation);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             Debug.Log("Heavy1 Spawned");
+            Instantiate(Unit, SpawnLoc.transform.position, SpawnLoc.transform.rotation);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             Debug.Log("Special1 Spawned");
+            Instantiate(Unit, SpawnLoc.transform.position, SpawnLoc.transform.rotation);
         }
     }
 }

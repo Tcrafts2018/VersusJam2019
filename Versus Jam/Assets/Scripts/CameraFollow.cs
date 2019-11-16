@@ -16,6 +16,7 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetKey("d"))
         {
             transform.Translate(Time.deltaTime * Vector3.right * moveSpeed);
