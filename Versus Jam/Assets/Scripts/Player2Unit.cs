@@ -7,10 +7,6 @@ public class Player2Unit : MonoBehaviour
     public float unitMoveSpeed;
     public bool enemyDetected = false;
     private bool frambDetected = false;
-    private bool isAttacking;
-    private bool canAttack = true;
-    static public float P2Uhealth = 40;
-    static public float P2Udamage;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,20 +20,6 @@ public class Player2Unit : MonoBehaviour
         {
             transform.Translate(Time.deltaTime * Vector3.right * unitMoveSpeed);
         }
-
-        if (isAttacking == true && canAttack == true)
-        {
-            canAttack = false;
-            P2Udamage = Random.Range(15, 26);
-            Player1Unit.P1Uhealth = Player1Unit.P1Uhealth - P2Udamage;
-            Debug.Log("P2UAttacked");
-            StartCoroutine("AttackReset");
-        }
-        if (P2Uhealth <= 0)
-        {
-            Destroy(gameObject);
-            enemyDetected = false;
-        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -45,7 +27,6 @@ public class Player2Unit : MonoBehaviour
         if (other.gameObject.tag == "Player1Unit")
         {
             enemyDetected = true;
-            isAttacking = true;
             Debug.Log("Enemy Detected");
         }
 
@@ -61,7 +42,6 @@ public class Player2Unit : MonoBehaviour
         if (other.gameObject.tag == "Player1Unit")
         {
             enemyDetected = false;
-            isAttacking = false;
             Debug.Log("Enemy Lost");
         }
 
@@ -70,11 +50,5 @@ public class Player2Unit : MonoBehaviour
             frambDetected = false;
             Debug.Log("Framb Lost");
         }
-    }
-
-    IEnumerator AttackReset()
-    {
-        yield return new WaitForSeconds(1);
-        canAttack = true;
     }
 }
