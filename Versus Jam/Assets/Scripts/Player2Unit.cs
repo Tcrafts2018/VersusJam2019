@@ -6,6 +6,7 @@ public class Player2Unit : MonoBehaviour
 {
     public float unitMoveSpeed;
     public bool enemyDetected = false;
+    private bool frambDetected = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,7 @@ public class Player2Unit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enemyDetected == false)
+        if (enemyDetected == false && frambDetected == false)
         {
             transform.Translate(Time.deltaTime * Vector3.right * unitMoveSpeed);
         }
@@ -28,6 +29,12 @@ public class Player2Unit : MonoBehaviour
             enemyDetected = true;
             Debug.Log("Enemy Detected");
         }
+
+        if (other.gameObject.tag == "Player2Unit")
+        {
+            frambDetected = true;
+            Debug.Log("Framb Detected");
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -36,6 +43,12 @@ public class Player2Unit : MonoBehaviour
         {
             enemyDetected = false;
             Debug.Log("Enemy Lost");
+        }
+
+        if (other.gameObject.tag == "Player2Unit")
+        {
+            frambDetected = false;
+            Debug.Log("Framb Lost");
         }
     }
 }
