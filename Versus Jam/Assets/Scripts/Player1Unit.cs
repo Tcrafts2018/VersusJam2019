@@ -10,10 +10,16 @@ public class Player1Unit : MonoBehaviour
 
     private bool isAttacking;
     private bool canAttack = true;
+<<<<<<< HEAD
     public float P1Uhealth = 40;
     public float P1Udamage;
     public float P2Uh;
 
+=======
+    static public float P1Uhealth = 40;
+    static public float P1Udamage;
+    // Start is called before the first frame update
+>>>>>>> parent of 112dd46... NullReferenceException
     void Start()
     {
         
@@ -21,7 +27,7 @@ public class Player1Unit : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {       
+    {
         if (enemyDetected == false && frambDetected == false)
         {
             transform.Translate(Time.deltaTime * Vector3.right * unitMoveSpeed);
@@ -31,7 +37,7 @@ public class Player1Unit : MonoBehaviour
         {
             canAttack = false;
             P1Udamage = Random.Range(15, 26);
-            P2Uh = P2Uh - P1Udamage;
+            Player2Unit.P2Uhealth = Player2Unit.P2Uhealth - P1Udamage;
             Debug.Log("P1UAttacked");
             StartCoroutine("AttackReset");
         }
@@ -44,7 +50,6 @@ public class Player1Unit : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        P2Uh = other.GetComponent<Player2Unit>().P2Uhealth;
         if (other.gameObject.tag == "Player2Unit")
         {
             enemyDetected = true;
