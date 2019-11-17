@@ -17,14 +17,15 @@ public class CameraFollow : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey("d"))
+        if (Input.GetKey("d") && transform.position.x < 7.23)
         {
             transform.Translate(Time.deltaTime * Vector3.right * moveSpeed);
         }
 
-        if (Input.GetKey("a"))
+        if (Input.GetKey("a") && transform.position.x > -47.58)
         {
             transform.Translate(Time.deltaTime * Vector3.left * moveSpeed);
         }
+
     }
 }
