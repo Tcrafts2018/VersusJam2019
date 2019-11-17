@@ -38,21 +38,32 @@ public class Player2Unit : MonoBehaviour
         {
             canAttack = false;
             P2Udamage = Random.Range(15, 26);
+<<<<<<< HEAD
             Player1Unit.P1Uhealth = Player1Unit.P1Uhealth - P2Udamage;
             Debug.Log("P2UAttacked");
             StartCoroutine("AttackReset");
         }
 
+=======
+            P1Uh = P1Uh - P2Udamage;
+            Debug.Log("P2UAttacked");
+            StartCoroutine("AttackReset");
+        }
+>>>>>>> parent of 4dd5357... HealthWorks
         if (P2Uhealth <= 0)
         {
             Destroy(gameObject);
             enemyDetected = false;
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 4dd5357... HealthWorks
     }
 
     private void OnTriggerStay(Collider other)
     {
+        P1Uh = other.GetComponent<Player1Unit>().P1Uhealth;
         if (other.gameObject.tag == "Player1Unit")
         {
             enemyDetected = true;

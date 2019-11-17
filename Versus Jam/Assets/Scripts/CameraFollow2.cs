@@ -16,12 +16,12 @@ public class CameraFollow2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.RightArrow) && transform.position.x < 7.23)
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Translate(Time.deltaTime * Vector3.right * moveSpeed);
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow) && transform.position.x > -47.58)
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(Time.deltaTime * Vector3.left * moveSpeed);
         }
