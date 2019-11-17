@@ -7,11 +7,14 @@ public class Player2Unit : MonoBehaviour
     public float unitMoveSpeed;
     public bool enemyDetected = false;
     private bool frambDetected = false;
+<<<<<<< HEAD
     private bool isAttacking;
     private bool canAttack = true;
     public float P2Uhealth = 40;
     public float P2Udamage;
     public float P1Uh;
+=======
+>>>>>>> d72c459a0e21acb9d637cdf1ab83e539427068fb
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +28,7 @@ public class Player2Unit : MonoBehaviour
         {
             transform.Translate(Time.deltaTime * Vector3.right * unitMoveSpeed);
         }
+<<<<<<< HEAD
 
         if (isAttacking == true && canAttack == true)
         {    
@@ -35,6 +39,8 @@ public class Player2Unit : MonoBehaviour
             Debug.Log("P2UAttacked");
             StartCoroutine("AttackReset");
         }
+=======
+>>>>>>> d72c459a0e21acb9d637cdf1ab83e539427068fb
     }
 
     private void OnTriggerEnter(Collider other)
@@ -43,7 +49,11 @@ public class Player2Unit : MonoBehaviour
         {
             P1Uh = other.GetComponent<Player1Unit>().P1Uhealth;
             enemyDetected = true;
+<<<<<<< HEAD
             isAttacking = true;
+=======
+            Debug.Log("Enemy Detected");
+>>>>>>> d72c459a0e21acb9d637cdf1ab83e539427068fb
         }
 
         if (other.gameObject.tag == "Player2Unit")
@@ -74,7 +84,6 @@ public class Player2Unit : MonoBehaviour
         if (other.gameObject.tag == "Player1Unit")
         {
             enemyDetected = false;
-            isAttacking = false;
             Debug.Log("Enemy Lost");
         }
 
@@ -83,11 +92,5 @@ public class Player2Unit : MonoBehaviour
             frambDetected = false;
             Debug.Log("Framb Lost");
         }
-    }
-
-    IEnumerator AttackReset()
-    {
-        yield return new WaitForSeconds(1);
-        canAttack = true;
     }
 }
