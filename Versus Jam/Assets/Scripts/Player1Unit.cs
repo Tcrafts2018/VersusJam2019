@@ -7,13 +7,19 @@ public class Player1Unit : MonoBehaviour
     public float unitMoveSpeed;
     public bool enemyDetected = false;
     private bool frambDetected = false;
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 1ef9eed... Delete
     private bool isAttacking;
     private bool canAttack = true;
     public float P1Uhealth = 40;
     public float P1Udamage;
     public float P2Uh;
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 1ef9eed... Delete
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +33,10 @@ public class Player1Unit : MonoBehaviour
         {
             transform.Translate(Time.deltaTime * Vector3.right * unitMoveSpeed);
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 1ef9eed... Delete
 
         if (isAttacking == true && canAttack == true)
         {
@@ -48,7 +57,10 @@ public class Player1Unit : MonoBehaviour
             P2Uh = other.GetComponent<Player2Unit>().P2Uhealth;
             enemyDetected = true;
             isAttacking = true;
+<<<<<<< HEAD
             Debug.Log("Enemy Detected");
+=======
+>>>>>>> parent of 1ef9eed... Delete
         }
 
         if (other.gameObject.tag == "Player1Unit")
@@ -78,6 +90,7 @@ public class Player1Unit : MonoBehaviour
         if (other.gameObject.tag == "Player2Unit")
         {
             enemyDetected = false;
+            isAttacking = false;
             Debug.Log("Enemy Lost");
         }
 
@@ -88,5 +101,9 @@ public class Player1Unit : MonoBehaviour
         }
     }
 
-
+    IEnumerator AttackReset()
+    {
+        yield return new WaitForSeconds(1);
+        canAttack = true;
+    }
 }
