@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Player2Controller.cs" />
     <Compile Include="Assets\Scripts\Player2Unit.cs" />
     <Compile Include="Assets\Scripts\SplitScreen.cs" />
+    <None Include="Assets\PBR Ground Materials #2 [Dirt, Grass &amp; Rocky]\Documentation.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/genlab/Documents/GitHub/VersusJam2019/Versus Jam/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
