@@ -41,47 +41,39 @@ public class Player1Unit : MonoBehaviour
         if (isAttacking == true && canAttack == true)
         {
             canAttack = false;
-            P1Udamage = Random.Range(5, 11);
+            P1Udamage = Random.Range(15, 26);
             P2Uh = P2Uh - P1Udamage;
-            Debug.Log(P2Uh);
             Debug.Log("P1UAttacked");
             StartCoroutine("AttackReset");
         }
-
+        if (P1Uhealth <= 0)
+        {
+            Destroy(gameObject);
+            enemyDetected = false;
+        }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
+        P2Uh = other.GetComponent<Player2Unit>().P2Uhealth;
         if (other.gameObject.tag == "Player2Unit")
         {
-            P2Uh = other.GetComponent<Player2Unit>().P2Uhealth;
             enemyDetected = true;
             isAttacking = true;
+<<<<<<< HEAD
 <<<<<<< HEAD
             Debug.Log("Enemy Detected");
 =======
 >>>>>>> parent of 1ef9eed... Delete
+=======
+            Debug.Log("Enemy Detected");
+>>>>>>> parent of 4dd5357... HealthWorks
         }
 
         if (other.gameObject.tag == "Player1Unit")
         {
             frambDetected = true;
             Debug.Log("Framb Detected");
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag == "Player2Unit")
-        {
-            P1Uhealth = other.GetComponent<Player2Unit>().P1Uh;
-            if (P2Uh <= 0)
-            {
-                Destroy(other.gameObject);
-                enemyDetected = false;
-                isAttacking = false;
-                canAttack = true;
-            }
         }
     }
 
