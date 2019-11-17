@@ -7,14 +7,13 @@ public class Player1Unit : MonoBehaviour
     public float unitMoveSpeed;
     public bool enemyDetected = false;
     private bool frambDetected = false;
-<<<<<<< HEAD
+
     private bool isAttacking;
     private bool canAttack = true;
     public float P1Uhealth = 40;
     public float P1Udamage;
     public float P2Uh;
-=======
->>>>>>> d72c459a0e21acb9d637cdf1ab83e539427068fb
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +27,7 @@ public class Player1Unit : MonoBehaviour
         {
             transform.Translate(Time.deltaTime * Vector3.right * unitMoveSpeed);
         }
-<<<<<<< HEAD
+
 
         if (isAttacking == true && canAttack == true)
         {
@@ -40,8 +39,6 @@ public class Player1Unit : MonoBehaviour
             StartCoroutine("AttackReset");
         }
 
-=======
->>>>>>> d72c459a0e21acb9d637cdf1ab83e539427068fb
     }
 
     private void OnTriggerEnter(Collider other)
@@ -50,11 +47,8 @@ public class Player1Unit : MonoBehaviour
         {
             P2Uh = other.GetComponent<Player2Unit>().P2Uhealth;
             enemyDetected = true;
-<<<<<<< HEAD
             isAttacking = true;
-=======
             Debug.Log("Enemy Detected");
->>>>>>> d72c459a0e21acb9d637cdf1ab83e539427068fb
         }
 
         if (other.gameObject.tag == "Player1Unit")
