@@ -37,15 +37,13 @@ public class Player2Unit : MonoBehaviour
             Debug.Log("P2UAttacked");
             StartCoroutine("AttackReset");
         }
-<<<<<<< HEAD
 
-=======
         if (P2Uhealth <= 0)
         {
             Destroy(gameObject);
             enemyDetected = false;
         }
->>>>>>> parent of 4dd5357... HealthWorks
+
     }
 
     private void OnTriggerStay(Collider other)
